@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-</head>
-<body>
-    <h1>欢迎来到我的网站，hello</h1>
-</body>
+<html>
+  <head>
+    <title>时钟</title>
+    <style>
+      #clock {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 200px;
+      }
+    </style>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        var timeString =
+          hours.toString().padStart(2, "0") +
+          ":" +
+          minutes.toString().padStart(2, "0") +
+          ":" +
+          seconds.toString().padStart(2, "0");
+
+        document.getElementById("clock").textContent = timeString;
+      }
+
+      setInterval(updateClock, 1000);
+    </script>
+  </head>
+  <body>
+    <div id="clock"></div>
+  </body>
 </html>
